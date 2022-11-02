@@ -2,7 +2,6 @@ package loversmission.hoodee.controller;
 
 import cn.hutool.core.util.ObjectUtil;
 import loversmission.hoodee.common.Result;
-import loversmission.hoodee.entity.UserImage;
 import loversmission.hoodee.entity.UserRelation;
 import loversmission.hoodee.entity.WxUser;
 import loversmission.hoodee.entity.pojo.BindRelationsDTO;
@@ -37,7 +36,7 @@ public class UserController {
     }
 
     @PostMapping("/saveInfo")
-    public Result<Boolean> saveWxUserInfo(@Validated @RequestBody WxUser user) throws Exception {
+    public Result<Boolean> saveWxUserInfo(@Validated @RequestBody WxUser user) {
         Boolean res = wxUserService.saveUserInfo(user);
         return res ? Result.success(true) : Result.error();
     }
@@ -64,18 +63,6 @@ public class UserController {
     public Result<Boolean> isBind(@PathVariable("openID") String openID) {
         Boolean res = wxUserService.isBind(openID);
         return Result.success(res);
-    }
-
-    @GetMapping("/get/images/{openID}")
-    public Result<List<UserImage>> getCpImages(@PathVariable("openID") String openID) {
-        List<UserImage> images = wxUserService.getCpImages(openID);
-        return Result.success(images);
-    }
-
-    @GetMapping("/delete/images/{id}")
-    public Result<Boolean> deleteCpImages(@PathVariable("id") String id) {
-        Boolean res = wxUserService.deleteCpImages(id);
-        return res ? Result.success() : Result.error();
     }
 
     @GetMapping("/get/day/{openID}")

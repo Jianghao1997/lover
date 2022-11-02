@@ -42,7 +42,7 @@
 														<text class="mission-desc">💪 By：{{ item.createUserName}}</text>
 													</uni-col>
 												</uni-row>
-												<uni-row>													
+												<uni-row>
 													<uni-col :span="12" v-if="item.missionType == 1">
 														<text class="mission-desc"
 															:style="isNeedWarning(item.endTime) ? 'color: #de0f00;' : ''">{{ item.endTime}} 截至</text>
@@ -61,7 +61,7 @@
 					</view>
 					<view v-else style="text-align: center;">
 						<image style="width: 100px; height: 100px; text-align: center;" mode="scaleToFill"
-							src="https://www.loversmission.xyz/images/miniprogramer/noData.png"></image>
+							src="你的域名images/miniprogramer/noData.png"></image>
 						<view>
 							<text class="font-style"> 暂无任务哦！</text>
 						</view>
@@ -70,8 +70,8 @@
 			</view>
 			<view style="padding: 0px 15px; margin:10px 0px;">
 				<uni-collapse :border="false" title-border="none">
-					<uni-collapse-item title="已完成任务(点击查看)" thumb="https://www.loversmission.xyz/images/miniprogramer/icons8-in-progress.gif" :open="false" :border="false" titleBorder="none">
-						<view v-if="finishedMission.length != 0">					
+					<uni-collapse-item title="已完成任务(点击查看)" thumb="你的域名images/miniprogramer/icons8-in-progress.gif" :open="false" :border="false" titleBorder="none">
+						<view v-if="finishedMission.length != 0">
 							<view v-for="(item, index) in finishedMission" :key="index" style="padding: 0px 10px;">
 								<uni-swipe-action>
 									<uni-swipe-action-item
@@ -114,12 +114,12 @@
 												</uni-card>
 											</view>
 									</uni-swipe-action-item>
-								</uni-swipe-action>						
+								</uni-swipe-action>
 							</view>
 						</view>
 						<view v-else style="text-align: center;">
 							<image style="width: 100px; height: 100px; text-align: center;" mode="scaleToFill"
-								src="https://www.loversmission.xyz/images/miniprogramer/noData.png"></image>
+								src="你的域名images/miniprogramer/noData.png"></image>
 							<view>
 								<text class="font-style"> 暂无任务哦！</text>
 							</view>
@@ -130,7 +130,7 @@
 		</view>
 
 		<view v-else class="none-conten">
-			<image style="height: 320px;" mode="scaleToFill" src="https://www.loversmission.xyz/images/miniprogramer/None.png"></image>
+			<image style="height: 320px;" mode="scaleToFill" src="你的域名images/miniprogramer/None.png"></image>
 			<view>
 				<text class="font-style"> 暂无任务哦！</text>
 			</view>
@@ -148,7 +148,7 @@
 				unFinishedMission: [],
 				finishedMission: [],
 				openId: '',
-				unFinishedMissionAvatar: 'https://www.loversmission.xyz/images/miniprogramer/icons8-task.gif',				
+				unFinishedMissionAvatar: '你的域名images/miniprogramer/icons8-task.gif',
 				nomalOption: [{
 					text: '完成',
 					style: {
@@ -193,8 +193,8 @@
 					iconColor: '#fff'
 				},
 				content: [{
-					iconPath: 'https://www.loversmission.xyz/images/miniprogramer/write.png',
-					selectedIconPath: 'https://www.loversmission.xyz/images/miniprogramer/write.png',
+					iconPath: '你的域名images/miniprogramer/write.png',
+					selectedIconPath: '你的域名images/miniprogramer/write.png',
 					text: '写个任务',
 					active: false
 				}],
@@ -203,7 +203,7 @@
 				unFinishedMissionCount: 0
 			}
 		},
-		onLoad() {			
+		onLoad() {
 			let _this = this
 			uni.getStorage({
 				key: 'openId',
@@ -220,7 +220,7 @@
 							setTimeout(function() {
 								uni.switchTab({
 									url: '/pages/infoPage/index'
-								})	
+								})
 							}, 1000);
 						}
 					});
@@ -244,7 +244,7 @@
 							setTimeout(function() {
 								uni.switchTab({
 									url: '/pages/infoPage/index'
-								})	
+								})
 							}, 1000);
 						}
 					});
@@ -275,7 +275,7 @@
 			},
 			getUrl(item) {
 				let _this = this
-				return item.createUserOpenID != _this.openId ? 'https://www.loversmission.xyz/images/miniprogramer/MarketA.png' : 'https://www.loversmission.xyz/images/miniprogramer/MarketB.png'
+				return item.createUserOpenID != _this.openId ? '你的域名images/miniprogramer/MarketA.png' : '你的域名images/miniprogramer/MarketB.png'
 			},
 			operation(e, item) {
 				let _this = this
@@ -286,7 +286,7 @@
 							bForce: false
 						})
 						.then(result => {
-							if (result.data.code == 0) {								
+							if (result.data.code == 0) {
 								uni.showToast({
 									title: '任务完成',
 									icon: "success",
@@ -297,7 +297,7 @@
 										}, 1000);
 									}
 								})
-							} else if (result.data.code == 10001) {								
+							} else if (result.data.code == 10001) {
 								uni.showModal({
 									title: '系统提示',
 									content: result.data.message + '是否确认完成？',
@@ -311,7 +311,7 @@
 													bForce: true
 												})
 												.then(result => {
-													if (result.data.code == 0) {								
+													if (result.data.code == 0) {
 														uni.showToast({
 															title: '任务完成',
 															icon: "success",
@@ -360,7 +360,7 @@
 							openID: _this.openId
 						})
 						.then(result => {
-							if (result.data.code == 0) {								
+							if (result.data.code == 0) {
 								uni.showToast({
 									title: '打卡成功',
 									icon: "success",
@@ -387,7 +387,7 @@
 						})
 				}
 				if (e.content.text == '修改') {
-					if (_this.openId != item.createUserOpenID) {						
+					if (_this.openId != item.createUserOpenID) {
 						uni.showModal({
 							title: '系统提示',
 							content: '不能修改对方创建的任务哦！',
@@ -406,7 +406,7 @@
 							openID: _this.openId
 						})
 						.then(result => {
-							if (result.data.code == 0) {								
+							if (result.data.code == 0) {
 								uni.showToast({
 									title: '删除成功',
 									icon: "success",
@@ -465,7 +465,7 @@
 							uni.hideLoading()
 							uni.stopPullDownRefresh();
 						}
-					}					
+					}
 				})
 			},
 			trigger(e) {
@@ -491,7 +491,7 @@
 
 	.mission-page {
 		padding: 0px 0px 5px 0px;
-		
+
 		.uni-card {
 		    margin: 10px;
 		    padding: 0 8px;
@@ -501,7 +501,7 @@
 		    background-color: #f7f7f773;
 		    flex: 1;
 		}
-		
+
 		.uni-card .uni-card__content {
 			padding: 10px 0px !important;
 			font-size: 14px;
@@ -563,7 +563,7 @@
 				right: 10px;
 			}
 		}
-		
+
 		.uni-swipe_button {
 		    display: flex;
 		    flex-direction: row;

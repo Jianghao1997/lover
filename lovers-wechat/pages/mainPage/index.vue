@@ -70,8 +70,8 @@
 				autoplay: true,
 				interval: 2000,
 				duration: 500,
-				avatar: 'https://www.loversmission.xyz/images/miniprogramer/icons8-calendar.gif',
-				coinUrl: 'https://www.loversmission.xyz/images/miniprogramer/icons8-cheap.gif',
+				avatar: '你的域名images/miniprogramer/icons8-calendar.gif',
+				coinUrl: '你的域名images/miniprogramer/icons8-cheap.gif',
 				userA: '阿珍',
 				userB: '阿强',
 				day: 0,
@@ -88,26 +88,26 @@
 					iconColor: '#fff'
 				},
 				content: [{
-						iconPath: 'https://www.loversmission.xyz/images/miniprogramer/write.png',
-						selectedIconPath: 'https://www.loversmission.xyz/images/miniprogramer/write.png',
+						iconPath: '你的域名images/miniprogramer/write.png',
+						selectedIconPath: '你的域名images/miniprogramer/write.png',
 						text: '小情话',
 						active: false
 					},
 					{
-						iconPath: 'https://www.loversmission.xyz/images/miniprogramer/updateNickName.png',
-						selectedIconPath: 'https://www.loversmission.xyz/images/miniprogramer/updateNickName.png',
+						iconPath: '你的域名images/miniprogramer/updateNickName.png',
+						selectedIconPath: '你的域名images/miniprogramer/updateNickName.png',
 						text: '修改爱称',
 						active: false
 					},
 					{
-						iconPath: 'https://www.loversmission.xyz/images/miniprogramer/unBind.png',
-						selectedIconPath: 'https://www.loversmission.xyz/images/miniprogramer/unBind.png',
+						iconPath: '你的域名images/miniprogramer/unBind.png',
+						selectedIconPath: '你的域名images/miniprogramer/unBind.png',
 						text: '解除关系',
 						active: false
 					}
 				],
 				imageList: [{
-					imageUrl: 'https://www.loversmission.xyz/images/miniprogramer/暂无图片.png'
+					imageUrl: '你的域名images/miniprogramer/暂无图片.png'
 				}],
 				loveSentences: '阿珍爱上阿强在一个没有星星的夜晚！',
 				msgType: 'success',
@@ -147,7 +147,7 @@
 							setTimeout(function() {
 								uni.switchTab({
 									url: '/pages/infoPage/index'
-								})	
+								})
 							}, 1000);
 						}
 					});
@@ -171,7 +171,7 @@
 							setTimeout(function() {
 								uni.switchTab({
 									url: '/pages/infoPage/index'
-								})	
+								})
 							}, 1000);
 						}
 					});
@@ -516,7 +516,7 @@
 					success: (chooseImageRes) => {
 						const tempFilePaths = chooseImageRes.tempFilePaths;
 						uni.uploadFile({
-							url: 'https://www.loversmission.xyz/upload/image', //仅为示例，非真实的接口地址
+							url: '你的域名upload/image', //仅为示例，非真实的接口地址
 							filePath: tempFilePaths[0],
 							name: 'file',
 							formData: {
@@ -551,14 +551,14 @@
 			},
 			selectedBanner(item, index) {
 				let _this = this
-				let previewImageList = _this.imageList.map(p => p.imageUrl)				
+				let previewImageList = _this.imageList.map(p => p.imageUrl)
 				uni.showActionSheet({
 					itemList: ['查看', '删除'],
 					success: function(res) {
 						if (res.tapIndex == 0) {
 							uni.previewImage({
 								current: index,
-								urls: previewImageList						
+								urls: previewImageList
 							})
 						}
 						if (res.tapIndex == 1) {

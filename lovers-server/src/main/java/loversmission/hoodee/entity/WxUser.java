@@ -57,19 +57,4 @@ public class WxUser {
 
     @TableField("last_login_time")
     private Date lastLoginTime;
-
-    private String country;
-
-    private String province;
-
-    private String city;
-
-    private String district;
-
-    /**
-     * 运营商信息
-     */
-    private String isp;
-
-    private String ip;
 }

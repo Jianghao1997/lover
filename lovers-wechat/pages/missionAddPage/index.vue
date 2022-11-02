@@ -6,14 +6,14 @@
 		<uni-card>
 			<view style="text-align: center;">
 				<image style="text-align: center;" mode="scaleToFill"
-					src="https://www.loversmission.xyz/images/miniprogramer/Mission.gif"></image>												
+					src="你的域名images/miniprogramer/Mission.gif"></image>
 			</view>
 			<view v-if="readOnly" style="text-align: center;">
 				<text style="font-size: 16px;">此任务由：<text style="color:crimson;margin-right: 5px;">{{ createUser }}</text> 创建并监督执行！</text>
 			</view>
 			<view class="form-card">
-				<uni-forms ref="valiForm" :modelValue="form" label-position="top" label-width="150" :rules="rules">					
-					<uni-forms-item label="💻任务类型" required name="missionType">					
+				<uni-forms ref="valiForm" :modelValue="form" label-position="top" label-width="150" :rules="rules">
+					<uni-forms-item label="💻任务类型" required name="missionType">
 						<uni-data-checkbox v-if="!readOnly" mode="button" v-model="form.missionType" :localdata="typeList"></uni-data-checkbox>
 						<uni-card v-else :is-shadow="false">
 							<text> {{ form.missionType == 0 ? '短期任务' : '长期任务' }}</text>
@@ -29,7 +29,7 @@
 						<picker :value="index" v-if="!readOnly" range-key="label" :range="classifyList" @change="bindPickerChange">
 							<uni-card :is-shadow="false">
 								<text> {{ form.missionClassify }}</text>
-							</uni-card>							
+							</uni-card>
 						</picker>
 						<uni-card v-else :is-shadow="false">
 							<text> {{ form.missionClassify }}</text>
@@ -62,10 +62,10 @@
 					<uni-col :span="readOnly? 12 : modify ? 12 : 24">
 						<button v-if="!readOnly" type="primary" @click="submit('valiForm')">{{ modify ? '修改任务' : '发布任务' }} </button>
 					</uni-col>
-				</uni-row>							
+				</uni-row>
 				<view v-if="readOnly" style="text-align: center;">
 					<image style="width: 100px; height: 100px;" mode="scaleToFill"
-						:src=" isCompelete ? 'https://www.loversmission.xyz/images/miniprogramer/已完成.png' : 'https://www.loversmission.xyz/images/miniprogramer/待完成.png'"></image>
+						:src=" isCompelete ? '你的域名images/miniprogramer/已完成.png' : '你的域名images/miniprogramer/待完成.png'"></image>
 				</view>
 			</view>
 		</uni-card>
@@ -107,7 +107,7 @@
 					},
 				},
 				classifyList: [{
-					label: "无预设",				
+					label: "无预设",
 					title: "",
 					desc: "",
 				}, {
@@ -181,7 +181,7 @@
 			if (option.missionID) {
 				_this.$request.get(`/mission/get/${option.missionID}`)
 					.then(result => {
-						if (result.data.code == 0) {																		
+						if (result.data.code == 0) {
 							_this.$set(_this.form, 'missionID', result.data.data.missionID)
 							_this.$set(_this.form, 'missionClassify', result.data.data.missionClassify)
 							_this.$set(_this.form, 'missionName', result.data.data.missionName)
@@ -199,7 +199,7 @@
 						}
 					})
 			}
-			if (option.readOnly == 'true' || option.readOnly == true) {		
+			if (option.readOnly == 'true' || option.readOnly == true) {
 				_this.readOnly = true
 			}
 			if (option.modify == 'true' || option.modify == true) {
@@ -211,7 +211,7 @@
 				return this.form.completeTime ? true : false
 			}
 		},
-		methods: {			
+		methods: {
 			bindPickerChange: function(e) {
 				let _this = this
 				_this.index = e.detail.value;
@@ -257,7 +257,7 @@
 						openID: _this.openId
 					})
 					.then(result => {
-						if (result.data.code == 0) {								
+						if (result.data.code == 0) {
 							uni.showToast({
 								title: '删除成功',
 								icon: "success",
@@ -294,7 +294,7 @@
 
 	.mission-page {
 		padding: 0px 0px 5px 0px;
-		
+
 		.uni-card {
 			margin: 10px;
 			padding: 0 8px;
@@ -304,7 +304,7 @@
 			background-color: #f7f7f773;
 			flex: 1;
 		}
-		
+
 		.uni-card .uni-card__content {
 			padding: 10px 0px !important;
 			font-size: 14px;
@@ -332,6 +332,6 @@
 			    background-color: #fff;
 			    flex: 1;
 			}
-		}		
+		}
 	}
 </style>

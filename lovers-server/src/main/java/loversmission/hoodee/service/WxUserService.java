@@ -13,15 +13,12 @@ import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import loversmission.hoodee.common.UserInfoUtil;
 import loversmission.hoodee.common.ids.IIdGenerator;
-import loversmission.hoodee.dao.UserImageDao;
 import loversmission.hoodee.dao.UserRelationDao;
 import loversmission.hoodee.dao.WxUserDao;
-import loversmission.hoodee.entity.UserImage;
 import loversmission.hoodee.entity.UserRelation;
 import loversmission.hoodee.entity.WxUser;
 import loversmission.hoodee.entity.pojo.*;
 import loversmission.hoodee.enums.Ids;
-import loversmission.hoodee.exception.BusinessException;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,19 +49,16 @@ public class WxUserService {
     private UserRelationDao userRelationDao;
 
     @Resource
-    private UserImageDao userImageDao;
-
-    @Resource
     private UserInfoUtil userInfoUtil;
 
     @Resource
     private Map<Ids, IIdGenerator> idGeneratorMap;
 
-    private static String APPID = "wx7cf98f884ad76df1";
+    private static String APPID = "xxx";
 
-    private static String SECRET = "8abc0c3935d952814488393f87455987";
+    private static String SECRET = "xxx";
 
-    private static String TEMPALTE_ID = "6kI4R7rSu_BHPHd2TZDGHwqB-OhP7F3xMV9nv7swe70";
+    private static String TEMPALTE_ID = "xxx";
 
     private static String UID_PREFIX = "LOVERS";
 
@@ -152,46 +146,10 @@ public class WxUserService {
                 String code = resObject.getString("errcode");
                 if (StringUtils.isNotBlank(msgInfo) && !"0".equals(code)) {
                     logger.error("请求微信api发送订阅消息时，微信返回失败，失败原因：{}，开始发送客服消息！", msgInfo);
-                    // 如果出错了发送客户消息
-                    // sendCustomerMessage(cpOpenId, finalSendMessage); 发送客户消息比较鸡肋
                 }
             }
         } catch (Exception ex) {
             logger.error("请求微信api发送订阅消息异常，异常原因：{}", ex.getMessage());
-        }
-    }
-
-    /**
-     * 发送客服消息
-     * @param cpOpenId
-     * @param msg
-     */
-    private void sendCustomerMessage(String cpOpenId, String msg) {
-        try {
-            // String mediaId = uploadMediaToWechat();
-            Map<String, Object> messageMap = new HashMap<>();
-            messageMap.put("touser", cpOpenId);
-            messageMap.put("msgtype", "text");
-            Map<String, Object> textMap = new HashMap<>();
-            textMap.put("content", msg);
-            // MiniProgramPageDTO miniProgramPageDTO = MiniProgramPageDTO.builder().title(msg).pagepath("pages/mainPage/index").thumb_media_id(mediaId).build();
-            messageMap.put("text", textMap);
-            logger.info("请求微信api发送客服消息时，请求参数：{}", JSON.toJSONString(messageMap));
-            String accessToken = getWxAccessToken();
-            if (StringUtils.isNotBlank(accessToken)) {
-                String url = String.format("https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=%s", accessToken);
-                String res = HttpUtil.post(url, JSON.toJSONString(messageMap));
-                JSONObject resObject = JSON.parseObject(res);
-                logger.info("请求微信api发送客服消息时，返回响应：{}", resObject.toJSONString());
-                String msgInfo = resObject.getString("errmsg");
-                String code = resObject.getString("errcode");
-                if (StringUtils.isNotBlank(msgInfo) && !"0".equals(code)) {
-                    logger.error("请求微信api发送客服消息时，微信返回失败，失败原因：{}",msgInfo);
-                }
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            logger.error("请求微信api发送客服消息异常，异常原因：{}", ex.getMessage());
         }
     }
 
@@ -249,39 +207,6 @@ public class WxUserService {
     }
 
     /**
-     * 获取情侣之间上传的照片 以及个人的上传的
-     * @param openID
-     * @return
-     */
-    public List<UserImage> getCpImages(String openID) {
-        List<String> cpOpenIDs = new ArrayList<>();
-        cpOpenIDs.add(openID);
-        try {
-            WxUser cpUserInfo = userInfoUtil.getCpUserInfo(openID, false);
-            if (ObjectUtil.isNotNull(cpUserInfo)) {
-                cpOpenIDs.add(cpUserInfo.getWxOpenId());
-            }
-        } catch (BusinessException businessException) {
-            logger.info("用户[{}]==未查询到对象信息返回个人上传照片", openID);
-        }
-        List<UserImage> list = userImageDao.list(Wrappers.<UserImage>lambdaQuery()
-                .eq(UserImage::getStatus, 1)
-                .in(UserImage::getUploadUser, cpOpenIDs)
-                .orderByDesc(UserImage::getCreateTime)
-                .last("limit 16"));
-        return Optional.ofNullable(list).orElse(new ArrayList<>());
-    }
-
-    /**
-     * 删除照片 (逻辑删除)
-     * @param id
-     * @return
-     */
-    public Boolean deleteCpImages(String id) {
-        return userImageDao.update(Wrappers.<UserImage>lambdaUpdate().set(UserImage::getStatus, -1).eq(UserImage::getId, id));
-    }
-
-    /**
      * 获取两人在一起的时间
      * @param openID
      * @return
@@ -331,7 +256,9 @@ public class WxUserService {
             }
             twoPeopleRelation.setUpdateTime(new Date());
             res = userRelationDao.updateById(twoPeopleRelation);
-            if (!res) throw new RuntimeException("更新最新绑定信息失败！");
+            if (!res) {
+                throw new RuntimeException("更新最新绑定信息失败！");
+            }
             return true;
         }
 

@@ -1,6 +1,6 @@
 {
     "name" : "lovers-mission",
-    "appid" : "__UNI__D13D89F",
+    "appid" : "xx",
     "description" : "",
     "versionName" : "1.0.0",
     "versionCode" : "100",
@@ -50,7 +50,7 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "wx7cf98f884ad76df1",
+        "appid" : "xxx",
         "setting" : {
             "urlCheck" : true,
             "minified" : true

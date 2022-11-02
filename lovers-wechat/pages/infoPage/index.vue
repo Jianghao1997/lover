@@ -10,7 +10,7 @@
 						<image style="width: 100px; height: 100px; background-color: #eeeeee;border-radius: 50px;"
 							mode="scaleToFill" :src="userInfo.wxAvatarUrl" @click="changeAvatar()"></image>
 						<image style="width: 50px; height: 50px;margin: 0px 10px;border-radius: 50px;" mode="scaleToFill"
-							src="https://www.loversmission.xyz/images/miniprogramer/icons8-heart.gif"></image>
+							src="你的域名images/miniprogramer/icons8-heart.gif"></image>
 						<image style="width: 100px; height: 100px; background-color: #eeeeee;border-radius: 50px;"
 							mode="scaleToFill" :src="cpUserInfo.wxAvatarUrl"></image>
 						<image style="width: 50px; height: 50px;" </view>
@@ -55,13 +55,13 @@
 						</view>
 					</uni-grid-item>
 				</uni-grid>
-			</view>		
+			</view>
 			<uni-card v-if="!getInfo" margin="10px 15px">
 				<button class="button" type="primary" @tap="getUserProfile">微信授权登录</button>
 			</uni-card>
 			<view v-if="unUsedStorage.length != 0 || usedStorage.length != 0">
 				<view>
-					<uni-card title="自己小仓库" thumbnail="https://www.loversmission.xyz/images/miniprogramer/icons8-product.gif" margin="10px 15px">
+					<uni-card title="自己小仓库" thumbnail="你的域名images/miniprogramer/icons8-product.gif" margin="10px 15px">
 						<view v-if="unUsedStorage.length != 0">
 							<view v-for="(item, index) in unUsedStorage" :key="index">
 								<uni-swipe-action>
@@ -95,7 +95,7 @@
 						</view>
 						<view v-else style="text-align: center;">
 							<image style="width: 100px; height: 100px; text-align: center;" mode="scaleToFill"
-								src="https://www.loversmission.xyz/images/miniprogramer/noData.png"></image>
+								src="你的域名images/miniprogramer/noData.png"></image>
 							<view>
 								<text class="font-style"> 暂无哦！</text>
 							</view>
@@ -104,7 +104,7 @@
 
 					<view style="padding: 0px 15px;">
 						<uni-collapse :border="false" title-border="none">
-							<uni-collapse-item title="对方小仓库" thumb="https://www.loversmission.xyz/images/miniprogramer/icons8-product-1.gif" :open="false" :border="false" titleBorder="none">
+							<uni-collapse-item title="对方小仓库" thumb="你的域名images/miniprogramer/icons8-product-1.gif" :open="false" :border="false" titleBorder="none">
 								<view v-if="cpUnUsedStorage.length != 0">
 									<view v-for="(item, index) in cpUnUsedStorage" :key="index" style="padding: 0px 10px;">
 										<view style="padding:5px 0px;">
@@ -133,7 +133,7 @@
 								</view>
 								<view v-else style="text-align: center;">
 									<image style="width: 100px; height: 100px; text-align: center;" mode="scaleToFill"
-										src="https://www.loversmission.xyz/images/miniprogramer/noData.png"></image>
+										src="你的域名images/miniprogramer/noData.png"></image>
 									<view>
 										<text class="font-style"> 暂无哦！</text>
 									</view>
@@ -145,7 +145,7 @@
 				<view style="margin: 10px 0px;">
 					<view style="padding: 0px 15px;">
 						<uni-collapse>
-							<uni-collapse-item title="自己已使用" thumb="https://www.loversmission.xyz/images/miniprogramer/icons8-product-1.gif" :open="false" :border="false" titleBorder="none">
+							<uni-collapse-item title="自己已使用" thumb="你的域名images/miniprogramer/icons8-product-1.gif" :open="false" :border="false" titleBorder="none">
 								<view v-if="usedStorage.length != 0">
 									<view v-for="(item, index) in usedStorage" :key="index" style="padding: 0px 10px;">
 										<uni-swipe-action>
@@ -178,7 +178,7 @@
 								</view>
 								<view v-else style="text-align: center;">
 									<image style="width: 100px; height: 100px; text-align: center;" mode="scaleToFill"
-										src="https://www.loversmission.xyz/images/miniprogramer/noData.png"></image>
+										src="你的域名images/miniprogramer/noData.png"></image>
 									<view>
 										<text class="font-style"> 暂无哦！</text>
 									</view>
@@ -193,7 +193,7 @@
 					<text class="font-style"> 暂未购买任何商品哦！</text>
 				</view>
 			</view>
-		</uni-section>				
+		</uni-section>
 		<view style="text-align: center; padding: 0px 15px">
 			<button class="button" type="primary" size="mini" open-type="share">分享一下此小程序吧</button>
 		</view>
@@ -551,7 +551,7 @@
 					success: (chooseImageRes) => {
 						const tempFilePaths = chooseImageRes.tempFilePaths;
 						uni.uploadFile({
-							url: 'https://www.loversmission.xyz/upload/avatar/image', //仅为示例，非真实的接口地址
+							url: '你的域名upload/avatar/image', //仅为示例，非真实的接口地址
 							filePath: tempFilePaths[0],
 							name: 'file',
 							success: (uploadFileRes) => {
@@ -607,12 +607,12 @@
 					}
 				})
 			},
-			getIsBind() {				
+			getIsBind() {
 				let _this = this
 				_this.$request.get(
 						`/user/isBind/${_this.openId}`)
 					.then(result => {
-						if (result.data.code == 0) {							
+						if (result.data.code == 0) {
 							_this.isBind = result.data.data
 						}
 					})
@@ -642,7 +642,7 @@
 						uni.navigateTo({
 							url: './bindRelationPage/index'
 						})
-					}					
+					}
 				}
 			},
 		},
@@ -656,7 +656,7 @@
 
 	.info-page {
 		padding: 0px 0px 5px 0px;
-		
+
 		.uni-card {
 			margin: 10px;
 			padding: 0 8px;
@@ -666,7 +666,7 @@
 			background-color: #f7f7f773;
 			flex: 1;
 		}
-		
+
 		.uni-list-item {
 		    display: flex;
 		    font-size: 16px;
@@ -676,7 +676,7 @@
 		    background-color: #e7ceef47;
 		    flex-direction: row;
 		}
-		
+
 		.image-content {
 			text-align: center;
 		}

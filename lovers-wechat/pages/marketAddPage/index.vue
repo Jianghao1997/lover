@@ -6,7 +6,7 @@
 		<uni-card>
 			<view style="text-align: center;">
 				<image style="text-align: center;" mode="scaleToFill"
-					src="https://www.loversmission.xyz/images/miniprogramer/Item.gif"></image>
+					src="你的域名images/miniprogramer/Item.gif"></image>
 			</view>
 			<view v-if="readOnly" style="text-align: center;">
 				<text style="font-size: 16px;">此商品由：<text style="color:crimson;margin-right: 5px;">{{ createUser }}</text> 上架！</text>
@@ -14,7 +14,7 @@
 			<view class="form-card">
 				<uni-forms ref="valiForm" :modelValue="form" label-position="top" label-width="150" :rules="rules">
 					<uni-forms-item label="🛒商品分类" required name="productClassify">
-						<picker v-if="!readOnly" :value="index" range-key="label" :range="classifyList" @change="bindPickerChange">						
+						<picker v-if="!readOnly" :value="index" range-key="label" :range="classifyList" @change="bindPickerChange">
 							<uni-card :is-shadow="false">
 								<text> {{ form.productClassify }}</text>
 							</uni-card>
@@ -218,7 +218,7 @@
 
 	.product-page {
 		padding: 0px 0px 5px 0px;
-		
+
 		.uni-card {
 			margin: 10px;
 			padding: 0 8px;
@@ -228,7 +228,7 @@
 			background-color: #f7f7f773;
 			flex: 1;
 		}
-		
+
 		.uni-card .uni-card__content {
 			padding: 10px 0px !important;
 			font-size: 14px;
@@ -246,7 +246,7 @@
 				color: #989090;
 			}
 		}
-		
+
 		.form-card {
 			.uni-card {
 			    margin: 0px !important;
@@ -257,6 +257,6 @@
 			    background-color: #fff;
 			    flex: 1;
 			}
-		}	
+		}
 	}
 </style>

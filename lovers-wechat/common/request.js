@@ -1,6 +1,5 @@
 // request.js
 // 通常可以吧 baseUrl 单独放在一个 js 文件了
-// const baseUrl = 'https://www.loversmission.xyz'  
 const baseUrl = 'https://localhost'
 
 const request = (options = {}) => {

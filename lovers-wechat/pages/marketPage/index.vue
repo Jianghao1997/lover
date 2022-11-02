@@ -53,7 +53,7 @@
 					</view>
 					<view v-else style="text-align: center;">
 						<image style="width: 100px; height: 100px; text-align: center;" mode="scaleToFill"
-							src="https://www.loversmission.xyz/images/miniprogramer/noData.png"></image>
+							src="你的域名images/miniprogramer/noData.png"></image>
 						<view>
 							<text class="font-style"> 暂无商品哦！</text>
 						</view>
@@ -63,7 +63,7 @@
 			<view style="padding: 0px 15px; margin:10px 0px;">
 				<uni-collapse :border="false" title-border="none">
 					<uni-collapse-item title="下架商品(点击查看)"
-						thumb="https://www.loversmission.xyz/images/miniprogramer/icons8-add-shopping-cart.gif"
+						thumb="你的域名images/miniprogramer/icons8-add-shopping-cart.gif"
 						:open="false" :border="false" titleBorder="none">
 						<view v-if="unSaleProducts.length != 0">
 							<view v-for="(item, index) in unSaleProducts" :key="index" style="padding: 0px 10px;">
@@ -107,7 +107,7 @@
 						</view>
 						<view v-else style="text-align: center;">
 							<image style="width: 100px; height: 100px; text-align: center;" mode="scaleToFill"
-								src="https://www.loversmission.xyz/images/miniprogramer/noData.png"></image>
+								src="你的域名images/miniprogramer/noData.png"></image>
 							<view>
 								<text class="font-style"> 暂无商品哦！</text>
 							</view>
@@ -118,7 +118,7 @@
 		</view>
 		<view v-else class="none-conten">
 			<image style="height: 320px;" mode="scaleToFill"
-				src="https://www.loversmission.xyz/images/miniprogramer/None.png"></image>
+				src="你的域名images/miniprogramer/None.png"></image>
 			<view>
 				<text class="font-style"> 暂无商品哦！</text>
 			</view>
@@ -136,7 +136,7 @@
 				unSaleProducts: [],
 				saleProducts: [],
 				openId: '',
-				saleProductsAvatar: 'https://www.loversmission.xyz/images/miniprogramer/icons8-wallet.gif',
+				saleProductsAvatar: '你的域名images/miniprogramer/icons8-wallet.gif',
 				options2: [{
 					text: '购买',
 					style: {
@@ -170,8 +170,8 @@
 					iconColor: '#fff'
 				},
 				content: [{
-					iconPath: 'https://www.loversmission.xyz/images/miniprogramer/write.png',
-					selectedIconPath: 'https://www.loversmission.xyz/images/miniprogramer/write.png',
+					iconPath: '你的域名images/miniprogramer/write.png',
+					selectedIconPath: '你的域名images/miniprogramer/write.png',
 					text: '发布商品',
 					active: false
 				}],
@@ -252,9 +252,9 @@
 				let _this = this
 				_this.$request.get(`/user/get/${_this.openId}`)
 					.then(result => {
-						if (result.data.code == 0) {							
+						if (result.data.code == 0) {
 							_this.user = result.data.data.wxUserNickName
-							_this.credit = result.data.data.wxUserCredit	
+							_this.credit = result.data.data.wxUserCredit
 							uni.setStorage({
 								key: 'userInfo',
 								data: result.data.data,
@@ -265,8 +265,8 @@
 			getUrl(item) {
 				let _this = this
 				return item.createUserOpenID != _this.openId ?
-					'https://www.loversmission.xyz/images/miniprogramer/MarketA.png' :
-					'https://www.loversmission.xyz/images/miniprogramer/MarketB.png'
+					'你的域名images/miniprogramer/MarketA.png' :
+					'你的域名images/miniprogramer/MarketB.png'
 			},
 			operation(e, item) {
 				let _this = this
@@ -377,7 +377,7 @@
 							confirmText: '关闭',
 						})
 						return
-					}					
+					}
 					uni.navigateTo({
 						url: `../marketAddPage/index?productID=${item.productID}&readOnly=false&modify=true`
 					})
@@ -441,7 +441,7 @@
 
 	.mission-page {
 		padding: 0px 0px 5px 0px;
-		
+
 		.page-title{
 			position: fixed;
 			font-size: 14px;
@@ -453,7 +453,7 @@
 			background-color: rgba(0, 0, 0, 0.8);
 			z-index: 10;
 		}
-		
+
 		.uni-searchbar {
 		    display: flex;
 		    flex-direction: row;
@@ -461,7 +461,7 @@
 		    padding: 10px;
 		    margin-top: 30px;
 		}
-		
+
 		.uni-card {
 			margin: 10px;
 			padding: 0 8px;
@@ -526,7 +526,7 @@
 			border-radius: 10px;
 		}
 		.market-list {
-			position: relative;		
+			position: relative;
 			.badge-num {
 				position: absolute;
 				top: 20px;
