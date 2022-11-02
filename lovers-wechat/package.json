@@ -1,0 +1,16 @@
+{
+    "id": "jarvis-picker",
+    "name": "popup弹窗 picker-view滚动选择器",
+    "version": "1.0.0",
+    "description": "自定义picker-view滚动选择器组件，自定义popup组件",
+    "keywords": [
+        "picker-view",
+        "popup"
+    ],
+    "dcloudext": {
+        "category": [
+            "前端组件",
+            "通用组件"
+        ]
+    }
+}

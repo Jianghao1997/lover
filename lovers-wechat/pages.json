@@ -1,0 +1,86 @@
+{
+	"pages": [{
+			"path": "pages/mainPage/index",
+			"style": {
+				"navigationBarTitleText": "我们",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/missionPage/index",
+			"style": {
+				"navigationBarTitleText": "任务",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/missionAddPage/index",
+			"style": {
+				"navigationBarTitleText": "写个小任务"
+			}
+		},
+		{
+			"path": "pages/marketPage/index",
+			"style": {
+				"navigationBarTitleText": "商店",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/marketAddPage/index",
+			"style": {
+				"navigationBarTitleText": "发布个大大的奖励"
+			}
+		},
+		{
+			"path": "pages/infoPage/index",
+			"style": {
+				"navigationBarTitleText": "个人中心",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/infoPage/bindRelationPage/index",
+			"style": {
+				"navigationBarTitleText": "“绑”个对象"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"borderStyle": "black",
+		"color": "#8F8F94",
+		"selectedColor": "#aaaaff",
+		"list": [{
+				"pagePath": "pages/mainPage/index",
+				"iconPath": "static/images/TabBar/love.png",
+				"selectedIconPath": "static/images/TabBar/love-selected.png",
+				"text": "我们"
+			},
+			{
+				"pagePath": "pages/missionPage/index",
+				"iconPath": "static/images/TabBar/mission.png",
+				"selectedIconPath": "static/images/TabBar/mission_selected.png",
+				"text": "任务"
+			},
+			{
+				"pagePath": "pages/marketPage/index",
+				"iconPath": "static/images/TabBar/market.png",
+				"selectedIconPath": "static/images/TabBar/market_selected.png",
+				"text": "商店"
+			},
+			{
+				"pagePath": "pages/infoPage/index",
+				"iconPath": "static/images/TabBar/home.png",
+				"selectedIconPath": "static/images/TabBar/home_selected.png",
+				"text": "我的"
+			}
+		]
+	},
+	"uniIdRouter": {}
+}
