@@ -1,9 +1,8 @@
 package loversmission.hoodee.constant;
 
 /**
- * Package: com.wwm.onlinestore.constant
  * Description：文件类型
- * Author: 蒋豪
+ * Author: jianghao
  * Date:  2021.04.22 11:47
  * Modified By:
  */

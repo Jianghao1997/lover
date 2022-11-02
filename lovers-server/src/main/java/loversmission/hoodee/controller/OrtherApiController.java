@@ -11,9 +11,8 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * Package: com.wwm.onlinestore.controller
  * Description：第三方api
- * Author: 蒋豪
+ * Author: jianghao
  * Date:  2022.04.09 17:27
  * Modified By:
  */

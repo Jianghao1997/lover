@@ -123,7 +123,9 @@ public class MissionInfoService {
      */
     private boolean insertMissionClock(MissionInfo missionInfo, boolean res, String missionId) {
         if (missionInfo.getMissionType().compareTo(MissionTypeEnum.LONG_TIME.getCode()) == 0) {
-            if (missionInfo.getEndTime() == null) throw new RuntimeException("长期任务必须输入任务截止时间哦！");
+            if (missionInfo.getEndTime() == null) {
+                throw new RuntimeException("长期任务必须输入任务截止时间哦！");
+            }
             // 计算时间差
             Date beginOfDay = DateUtil.beginOfDay(new Date());
             DateTime finalEndTime = DateUtil.offsetDay(missionInfo.getEndTime(), 1);
@@ -287,7 +289,9 @@ public class MissionInfoService {
         MissionInfo missionInfo = missionInfoDao.getOne(Wrappers.<MissionInfo>lambdaQuery()
                 .eq(MissionInfo::getMissionID, missionId));
         if (ObjectUtil.isNotNull(missionInfo)) {
-            if (missionInfo.getCreateUserOpenID().equals(openId)) throw new RuntimeException("oh! 你不可以为对方打卡哦！");
+            if (missionInfo.getCreateUserOpenID().equals(openId)) {
+                throw new RuntimeException("oh! 你不可以为对方打卡哦！");
+            }
             // 查看是否为长期任务
             if (missionInfo.getMissionType().compareTo(MissionTypeEnum.LONG_TIME.getCode()) == 0) {
                 boolean res = false;

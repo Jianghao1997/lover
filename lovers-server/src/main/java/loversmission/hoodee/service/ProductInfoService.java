@@ -103,9 +103,6 @@ public class ProductInfoService {
         if (ObjectUtil.isNull(info)) {
             throw new RuntimeException("该商品不存在哦！");
         }
-//        if (openID.equals(info.getCreateUserOpenID())) {
-//            throw new RuntimeException("不能购买自己上架的商品哦！");
-//        }
         if (info.getProductStatus().compareTo(ProductStatusEnum.UN_SALE.getCode()) == 0) {
             throw new RuntimeException("商品已经下架了哦！");
         }
