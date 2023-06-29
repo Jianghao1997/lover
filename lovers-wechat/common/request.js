@@ -1,6 +1,6 @@
 // request.js
-// 通常可以吧 baseUrl 单独放在一个 js 文件了
-const baseUrl = 'https://localhost'
+// 通常可以吧 baseUrl 单独放在一个 js 文件了，部署云服务器时注意修改请求地址
+const baseUrl = 'http://localhost:8080'
 
 const request = (options = {}) => {
 	return new Promise((resolve, reject) => {
